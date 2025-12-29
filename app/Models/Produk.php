@@ -15,5 +15,7 @@ class Produk extends Model
     'stok',
     'foto',
     'deskripsi'
-];
+    ];
+    // mematikan fitur timestamps otomatis
+    public $timestamps = false;
 }
