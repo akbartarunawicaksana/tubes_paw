@@ -21,7 +21,7 @@ class ProductController extends Controller
         return view('produk.create');
     }
 
-    // CREATE - Simpan produk baru ke database
+    // CREATE - Simpan produk baru
     public function store(Request $request)
     {
         $request->validate([
