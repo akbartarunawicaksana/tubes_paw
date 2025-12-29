@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('reseller', function (Blueprint $table) {
             $table->id();
-            $table->string('username', 50)->unique();
-            $table->string('password');
-            $table->string('nama_lengkap', 150)->nullable();
-            $table->string('email', 100)->nullable();
-            $table->enum('role', ['owner','admin'])->default('admin');
-            $table->string('foto_profil', 255)->nullable();
+            $table->string('nama_reseller', 150);
+            $table->enum('jenis_toko', ['Agen','Reseller','Outlet']);
+            $table->string('wilayah', 100)->nullable();
+            $table->text('alamat');
+            $table->string('no_telepon', 20);
+            $table->enum('status', ['Aktif','Tidak Aktif'])->default('Aktif');
             $table->timestamp('created_at')->useCurrent();
         });        
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('reseller');
     }
 };
