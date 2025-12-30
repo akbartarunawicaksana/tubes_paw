@@ -35,12 +35,18 @@
                             <span class="text-muted">Tidak ada foto</span>
                         @endif
                     </td>
-                    <td>{{ $produk->nama_produk }}</td>
-                    <td>{{ $produk->sku }}</td>
-                    <td class="align-middle text-end"> 
+                    <td class="align-middle">
+                        <strong>{{ $produk->nama_produk }}</strong>
+                    </td>
+                    <td class="align-middle">
+                        {{ $produk->sku }}
+                    </td>
+                    <td class="align-middle"> 
                         Rp {{ number_format($produk->harga, 0, ',', '.') }}
                     </td>
-                    <td>{{ $produk->stok }}</td>
+                    <td class="align-middle">
+                        {{ $produk->stok }}
+                    </td>
                     <td>
                         <a href="{{ route('produk.edit', $produk->id) }}" class="btn btn-sm btn-warning">Ubah</a>
 
