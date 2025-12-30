@@ -11,7 +11,7 @@ class ProductController extends Controller
     // READ - Tampilkan semua produk
     public function index()
     {
-        $produks = Produk::all();
+        $produks = Produk::paginate(5);
         return view('produk.index', compact('produks'));
     }
 

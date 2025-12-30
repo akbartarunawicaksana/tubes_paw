@@ -157,3 +157,31 @@ body {
     font-size: 14px;
     color: #6b7280;
 }
+
+/* ===== PAGINATION ===== */
+.pager {
+    display: flex;
+    gap: 10px;
+}
+
+.pager a {
+    padding: 6px 12px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #374151;
+    font-size: 14px;
+}
+
+.pager a:hover {
+    background: #f3f4f6;
+}
+
+.pager .disabled {
+    padding: 6px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    color: #9ca3af;
+    font-size: 14px;
+}

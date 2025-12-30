@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
 
@@ -56,7 +56,7 @@
             </tr>
             @empty
             <tr>
-                <td colspan="6" style="text-align:center;color:#6b7280">
+                <td colspan="6" class="empty">
                     Data produk belum ada
                 </td>
             </tr>
@@ -65,13 +65,18 @@
     </table>
 
     {{-- PAGINATION --}}
+    @if ($produks->hasPages())
     <div class="pagination">
-        <span>Menampilkan {{ $produks->count() }} produk</span>
-        <div>
-            <button>Sebelumnya</button>
-            <button>Selanjutnya</button>
+        <span>
+            Menampilkan {{ $produks->firstItem() }} – {{ $produks->lastItem() }}
+            dari {{ $produks->total() }} produk
+        </span>
+
+        <div class="pagination-links">
+            {{ $produks->links('Vendor.pagination.default') }}
         </div>
     </div>
+    @endif
 
 </div>
 
