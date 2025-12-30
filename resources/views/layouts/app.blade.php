@@ -16,14 +16,8 @@
                 <small class="text-muted">Manajemen Stok</small>
             </div>
             <nav class="nav flex-column p-3">
-                <a href="{{ route('dashboard') ?? '/' }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
-                    <i class="bi bi-house-door me-2"></i> Dashboard
-                </a>
                 <a href="{{ route('produk.index') }}" class="nav-link {{ request()->routeIs('produk.*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
                     <i class="bi bi-box-seam me-2"></i> Produk
-                </a>
-                <a href="{{ route('pesanan.index') ?? '#' }}" class="nav-link {{ request()->routeIs('pesanan.*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
-                    <i class="bi bi-cart me-2"></i> Pesanan
                 </a>
                 <a href="{{ route('stok.index') ?? '#' }}" class="nav-link {{ request()->routeIs('stok.*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
                     <i class="bi bi-bar-chart me-2"></i> Stok
@@ -31,8 +25,6 @@
                 <a href="{{ route('reseller.index') ?? '#' }}" class="nav-link {{ request()->routeIs('reseller.*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
                     <i class="bi bi-people me-2"></i> Reseller
                 </a>
-                <a href="{{ route('statistik') ?? '#' }}" class="nav-link {{ request()->routeIs('statistik*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
-                    <i class="bi bi-graph-up me-2"></i> Statistik
                 </a>
             </nav>
         </div>
