@@ -2,56 +2,49 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Es & Kopi Brasil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    {{-- Bootstrap --}}
+    <title>Es & Kopi Brasil - Manajemen Stok</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    {{-- CSS --}}
-    <link rel="stylesheet" href="{{ asset('css/produk.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
-<body>
+<body class="bg-light">
+    <div class="d-flex">
+        <!-- Sidebar Kiri -->
+        <div class="bg-white border-end shadow-sm" style="width: 280px; height: 100vh; position: fixed;">
+            <div class="p-4 text-center border-bottom">
+                <h4 class="fw-bold text-danger mb-0">Es & Kopi Brasil</h4>
+                <small class="text-muted">Manajemen Stok</small>
+            </div>
+            <nav class="nav flex-column p-3">
+                <a href="{{ route('dashboard') ?? '/' }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
+                    <i class="bi bi-house-door me-2"></i> Dashboard
+                </a>
+                <a href="{{ route('produk.index') }}" class="nav-link {{ request()->routeIs('produk.*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
+                    <i class="bi bi-box-seam me-2"></i> Produk
+                </a>
+                <a href="{{ route('pesanan.index') ?? '#' }}" class="nav-link {{ request()->routeIs('pesanan.*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
+                    <i class="bi bi-cart me-2"></i> Pesanan
+                </a>
+                <a href="{{ route('stok.index') ?? '#' }}" class="nav-link {{ request()->routeIs('stok.*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
+                    <i class="bi bi-bar-chart me-2"></i> Stok
+                </a>
+                <a href="{{ route('reseller.index') ?? '#' }}" class="nav-link {{ request()->routeIs('reseller.*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
+                    <i class="bi bi-people me-2"></i> Reseller
+                </a>
+                <a href="{{ route('statistik') ?? '#' }}" class="nav-link {{ request()->routeIs('statistik*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
+                    <i class="bi bi-graph-up me-2"></i> Statistik
+                </a>
+            </nav>
+        </div>
 
-<div class="wrapper">
-
-    {{-- SIDEBAR --}}
-    <div class="sidebar">
-        <div class="logo"><strong>Brasil</strong></div>
-
-        <ul>
-            <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-                <a href="/dashboard">Dashboard</a>
-            </li>
-
-            <li class="{{ request()->is('produk*') ? 'active' : '' }}">
-                <a href="{{ route('produk.index') }}">Produk</a>
-            </li>
-
-            <li class="{{ request()->is('pesanan*') ? 'active' : '' }}">
-                <a href="/pesanan">Pesanan</a>
-            </li>
-
-            <li class="{{ request()->is('stok*') ? 'active' : '' }}">
-                <a href="/stok">Stok</a>
-            </li>
-
-            <li class="{{ request()->is('reseller*') ? 'active' : '' }}">
-                <a href="/reseller">Reseller</a>
-            </li>
-
-            <li class="{{ request()->is('statistik*') ? 'active' : '' }}">
-                <a href="/statistik">Statistik</a>
-            </li>
-        </ul>
+        <!-- Konten Utama -->
+        <div class="flex-grow-1" style="margin-left: 280px;">
+            <div class="container-fluid py-4">
+                @yield('content')
+            </div>
+        </div>
     </div>
 
-    {{-- CONTENT --}}
-    <div class="content">
-        @yield('content')
-    </div>
-
-</div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
