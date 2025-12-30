@@ -30,10 +30,11 @@
         </div>
 
         <!-- Konten Utama -->
-        <div class="content">
-            @yield('content')
+        <div class="content flex-grow-1">
+            <div class="container-fluid">
+                @yield('content')
+            </div>
         </div>
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
