@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class StokController extends Controller
 {
+    // READ - daftar stok
     public function index()
     {
-        $produk = Produk::all(); // Data stok diambil dari tabel produk
-
+        $produk = Produk::all(); // ambil semua data produk
         return view('stok.index', compact('produk'));
     }
 }
