@@ -37,7 +37,7 @@
                     </td>
                     <td>{{ $produk->nama_produk }}</td>
                     <td>{{ $produk->sku }}</td>
-                    <td class="align-middle">
+                    <td class="align-middle text-end"> 
                         Rp {{ number_format($produk->harga, 0, ',', '.') }}
                     </td>
                     <td>{{ $produk->stok }}</td>
