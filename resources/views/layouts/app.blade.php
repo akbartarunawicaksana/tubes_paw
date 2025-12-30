@@ -30,8 +30,8 @@
         </div>
 
         <!-- Konten Utama -->
-        <div class="flex-grow-1" style="margin-left: 280px;">
-            <div class="container-fluid py-4">
+        <div class="flex-grow-1 p-4" style="margin-left: 280px; min-height: 100vh;">
+            <div class="container-fluid">
                 @yield('content')
             </div>
         </div>
