@@ -2,41 +2,113 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Es & Kopi Brasil - Manajemen Stok</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS untuk sidebar -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .wrapper {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #ffffff;
+            border-right: 1px solid #dee2e6;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        }
+        .logo {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #dc3545;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            margin: 8px 15px;
+        }
+        .sidebar li a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .sidebar li a:hover {
+            background-color: #f8f9fa;
+        }
+        .sidebar li.active a {
+            background-color: #dc3545;
+            color: white;
+            font-weight: 500;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 30px;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+            .content {
+                margin-left: 200px;
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-light">
-    <div class="d-flex">
-        <!-- Sidebar Kiri -->
-        <div class="bg-white border-end shadow-sm" style="width: 280px; height: 100vh; position: fixed;">
-            <div class="p-4 text-center border-bottom">
-                <h4 class="fw-bold text-danger mb-0">Es & Kopi Brasil</h4>
-                <small class="text-muted">Manajemen Stok</small>
-            </div>
-            <nav class="nav flex-column p-3">
-                <a href="{{ route('produk.index') }}" class="nav-link {{ request()->routeIs('produk.*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
-                    <i class="bi bi-box-seam me-2"></i> Produk
-                </a>
-                <a href="{{ route('stok.index') ?? '#' }}" class="nav-link {{ request()->routeIs('stok.*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
-                    <i class="bi bi-bar-chart me-2"></i> Stok
-                </a>
-                <a href="{{ route('reseller.index') ?? '#' }}" class="nav-link {{ request()->routeIs('reseller.*') ? 'active bg-danger text-white' : 'text-dark' }} rounded mb-2">
-                    <i class="bi bi-people me-2"></i> Reseller
-                </a>
-                </a>
-            </nav>
+<body>
+    <div class="wrapper">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="logo"><strong>Brasil</strong></div>
+            <ul>
+                <li class="{{ request()->is('/') || request()->is('dashboard') ? 'active' : '' }}">
+                    <a href="/">Dashboard</a>
+                </li>
+                <li class="{{ request()->routeIs('produk.*') ? 'active' : '' }}">
+                    <a href="{{ route('produk.index') }}">Produk</a>
+                </li>
+                <li class="{{ request()->routeIs('pesanan.*') ? 'active' : '' }}">
+                    <a href="#">Pesanan</a>
+                </li>
+                <li class="{{ request()->routeIs('stok.*') ? 'active' : '' }}">
+                    <a href="#">Stok</a>
+                </li>
+                <li class="{{ request()->routeIs('reseller.*') ? 'active' : '' }}">
+                    <a href="#">Reseller</a>
+                </li>
+                <li class="{{ request()->routeIs('statistik*') ? 'active' : '' }}">
+                    <a href="#">Statistik</a>
+                </li>
+            </ul>
         </div>
 
-        <!-- Konten Utama -->
-        <div class="content flex-grow-1">
-            <div class="container-fluid">
-                @yield('content')
-            </div>
+        <!-- CONTENT -->
+        <div class="content">
+            @yield('content')
         </div>
     </div>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
