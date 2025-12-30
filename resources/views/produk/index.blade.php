@@ -37,7 +37,9 @@
                     </td>
                     <td>{{ $produk->nama_produk }}</td>
                     <td>{{ $produk->sku }}</td>
-                    <td>Rp {{ number_format($produk->harga, 0, ',', '.') }}</td>
+                    <td class="align-middle">
+                        Rp {{ number_format($produk->harga, 0, ',', '.') }}
+                    </td>
                     <td>{{ $produk->stok }}</td>
                     <td>
                         <a href="{{ route('produk.edit', $produk->id) }}" class="btn btn-sm btn-warning">Ubah</a>
