@@ -157,3 +157,19 @@ body {
     font-size: 14px;
     color: #6b7280;
 }
+
+.badge {
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.badge.success {
+    background-color: #22c55e;
+}
+
+.badge.danger {
+    background-color: #ef4444;
+}

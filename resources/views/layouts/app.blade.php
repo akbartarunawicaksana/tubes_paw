@@ -12,20 +12,46 @@
     <link rel="stylesheet" href="{{ asset('css/produk.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="/">Es & Kopi Brasil</a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link active" href="{{ route('produk.index') }}">Produk</a>
-                <!-- Nanti tambah Reseller, Pesanan, dll di sini -->
-            </div>
-        </div>
-    </nav>
 
-    <main class="container mt-4">
+<div class="wrapper">
+
+    {{-- SIDEBAR --}}
+    <div class="sidebar">
+        <div class="logo"><strong>Brasil</strong></div>
+
+        <ul>
+            <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
+                <a href="/dashboard">Dashboard</a>
+            </li>
+
+            <li class="{{ request()->is('produk*') ? 'active' : '' }}">
+                <a href="{{ route('produk.index') }}">Produk</a>
+            </li>
+
+            <li class="{{ request()->is('pesanan*') ? 'active' : '' }}">
+                <a href="/pesanan">Pesanan</a>
+            </li>
+
+            <li class="{{ request()->is('stok*') ? 'active' : '' }}">
+                <a href="/stok">Stok</a>
+            </li>
+
+            <li class="{{ request()->is('reseller*') ? 'active' : '' }}">
+                <a href="/reseller">Reseller</a>
+            </li>
+
+            <li class="{{ request()->is('statistik*') ? 'active' : '' }}">
+                <a href="/statistik">Statistik</a>
+            </li>
+        </ul>
+    </div>
+
+    {{-- CONTENT --}}
+    <div class="content">
         @yield('content')
-    </main>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</div>
+
 </body>
 </html>

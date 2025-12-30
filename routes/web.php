@@ -56,3 +56,9 @@ Route::delete(
     uri: '/stok/{id}',
     action: [StokController::class, 'destroy']
 )->name(name: 'stok.destroy');
+
+// RESELLER
+use App\Http\Controllers\ResellerController;
+
+Route::get('/reseller', [ResellerController::class, 'index'])
+    ->name('reseller.index');
