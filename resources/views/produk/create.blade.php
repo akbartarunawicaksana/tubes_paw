@@ -48,12 +48,14 @@
                                    id="harga"
                                    name="harga"
                                    class="form-control @error('harga') is-invalid @enderror"
-                                   value="{{ old('harga') }}"
+                                   value="{{ old('harga', $produk->harga ?? '') }}"
                                    min="0"
+                                   step="100"
                                    required>
                             @error('harga')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                            <small class="text-muted">Masukkan angka tanpa titik atau koma, contoh: 5000 untuk Rp 5.000</small>
                         </div>
 
                         <!-- Stok -->
