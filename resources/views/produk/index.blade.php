@@ -73,7 +73,7 @@
         </span>
 
         <div class="pagination-links">
-            {{ $produks->links() }}
+            {{ $produks->links('Vendor.pagination.default') }}
         </div>
     </div>
     @endif
