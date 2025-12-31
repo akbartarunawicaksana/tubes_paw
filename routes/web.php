@@ -62,13 +62,3 @@ use App\Http\Controllers\ResellerController;
 
 Route::get('/reseller', [ResellerController::class, 'index'])
     ->name('reseller.index');
-
-// LOGIN
-use App\Http\Controllers\AuthController;
-
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/login', [AuthController::class, 'authenticate'])->name('login.process');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth');
