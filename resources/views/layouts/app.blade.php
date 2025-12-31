@@ -104,11 +104,11 @@
             </li>
 
             <li class="{{ request()->routeIs('stok.*') ? 'active' : '' }}">
-                <a href="#">Stok</a>
+                <a href="{{ route('stok.index') }}">Stok</a>
             </li>
 
             <li class="{{ request()->routeIs('reseller.*') ? 'active' : '' }}">
-                <a href="#">Reseller</a>
+                <a href="{{ route('reseller.index') }}">Reseller</a>
             </li>
 
             <li class="{{ request()->routeIs('statistik*') ? 'active' : '' }}">
