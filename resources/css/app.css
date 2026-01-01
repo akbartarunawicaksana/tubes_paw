@@ -32,3 +32,7 @@
     padding: 30px;
     background: #f4f6f9;
 }
+
+.text-justify {
+    text-align: justify;
+}
