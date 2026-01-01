@@ -20,31 +20,74 @@
 
     {{-- SIDEBAR --}}
     <div class="sidebar">
-        <div class="logo text-center mb-3">
-            <img src="{{ asset('images/LogoBrasilMerah.png') }}" style="width:120px;">
-        </div>
 
-        <ul>
-            <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-                <a href="/dashboard"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
-            </li>
-            <li class="{{ request()->is('produk*') ? 'active' : '' }}">
-                <a href="{{ route('produk.index') }}"><i class="fa-solid fa-cart-shopping"></i><span>Produk</span></a>
-            </li>
-            <li class="{{ request()->is('pesanan*') ? 'active' : '' }}">
-                <a href="/pesanan"><i class="fa-solid fa-receipt"></i><span>Pesanan</span></a>
-            </li>
-            <li class="{{ request()->is('stok*') ? 'active' : '' }}">
-                <a href="/stok"><i class="fa-solid fa-boxes-stacked"></i><span>Stok</span></a>
-            </li>
-            <li class="{{ request()->is('reseller*') ? 'active' : '' }}">
-                <a href="/reseller"><i class="fa-solid fa-user-group"></i><span>Reseller</span></a>
-            </li>
-            <li class="{{ request()->is('statistik*') ? 'active' : '' }}">
-                <a href="/statistik"><i class="fa-solid fa-chart-line"></i><span>Statistik</span></a>
-            </li>
-        </ul>
+    {{-- LOGO --}}
+    <div class="logo">
+    <img src="{{ asset('images/LogoBrasilMerah.png') }}" style="width:120px;">
     </div>
+
+    {{-- MENU UTAMA --}}
+    <ul class="menu">
+        <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
+            <a href="/dashboard">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li class="{{ request()->is('produk*') ? 'active' : '' }}">
+            <a href="{{ route('produk.index') }}">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Produk</span>
+            </a>
+        </li>
+
+        <li class="{{ request()->is('pesanan*') ? 'active' : '' }}">
+            <a href="/pesanan">
+                <i class="fa-solid fa-receipt"></i>
+                <span>Pesanan</span>
+            </a>
+        </li>
+
+        <li class="{{ request()->is('stok*') ? 'active' : '' }}">
+            <a href="/stok">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <span>Stok</span>
+            </a>
+        </li>
+
+        <li class="{{ request()->is('reseller*') ? 'active' : '' }}">
+            <a href="/reseller">
+                <i class="fa-solid fa-user-group"></i>
+                <span>Reseller</span>
+            </a>
+        </li>
+
+        <li class="{{ request()->is('statistik*') ? 'active' : '' }}">
+            <a href="/statistik">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Statistik</span>
+            </a>
+        </li>
+    </ul>
+
+    {{-- MENU BAWAH --}}
+    <ul class="menu bottom-menu">
+        <li>
+            <a href="/pengaturan">
+                <i class="fa-solid fa-gear"></i>
+                <span>Pengaturan</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Keluar</span>
+            </a>
+        </li>
+    </ul>
+</div>
 
     {{-- CONTENT --}}
     <div class="content">

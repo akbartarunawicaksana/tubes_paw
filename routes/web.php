@@ -80,3 +80,8 @@ Route::delete(
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard.index');
+
+// Pengaturan
+Route::get('/pengaturan', function () {
+    return view('pengaturan.index');
+})->name('pengaturan.index');
