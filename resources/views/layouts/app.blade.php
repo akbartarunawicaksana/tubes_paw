@@ -8,7 +8,7 @@
     {{-- Bootstrap --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    {{-- Font Awesome (ICON SIDEBAR) --}}
+    {{-- Font Awesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     {{-- CSS --}}
@@ -20,59 +20,30 @@
 
     {{-- SIDEBAR --}}
     <div class="sidebar">
-
-        {{-- LOGO --}}
         <div class="logo text-center mb-3">
-            <img src="{{ asset('images/LogoBrasilMerah.png') }}" 
-                 alt="Logo Brasil"
-                 style="width:120px;">
+            <img src="{{ asset('images/LogoBrasilMerah.png') }}" style="width:120px;">
         </div>
 
-        {{-- MENU --}}
         <ul>
             <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-                <a href="/dashboard">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Dashboard</span>
-                </a>
+                <a href="/dashboard"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
             </li>
-
             <li class="{{ request()->is('produk*') ? 'active' : '' }}">
-                <a href="{{ route('produk.index') }}">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span>Produk</span>
-                </a>
+                <a href="{{ route('produk.index') }}"><i class="fa-solid fa-cart-shopping"></i><span>Produk</span></a>
             </li>
-
             <li class="{{ request()->is('pesanan*') ? 'active' : '' }}">
-                <a href="/pesanan">
-                    <i class="fa-solid fa-receipt"></i>
-                    <span>Pesanan</span>
-                </a>
+                <a href="/pesanan"><i class="fa-solid fa-receipt"></i><span>Pesanan</span></a>
             </li>
-
             <li class="{{ request()->is('stok*') ? 'active' : '' }}">
-                <a href="/stok">
-                    <i class="fa-solid fa-boxes-stacked"></i>
-                    <span>Stok</span>
-                </a>
+                <a href="/stok"><i class="fa-solid fa-boxes-stacked"></i><span>Stok</span></a>
             </li>
-
             <li class="{{ request()->is('reseller*') ? 'active' : '' }}">
-                <a href="/reseller">
-                    <i class="fa-solid fa-user-group"></i>
-                    <span>Reseller</span>
-                </a>
+                <a href="/reseller"><i class="fa-solid fa-user-group"></i><span>Reseller</span></a>
             </li>
-
             <li class="{{ request()->is('statistik*') ? 'active' : '' }}">
-                <a href="/statistik">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <span>Statistik</span>
-                </a>
+                <a href="/statistik"><i class="fa-solid fa-chart-line"></i><span>Statistik</span></a>
             </li>
         </ul>
-
     </div>
 
     {{-- CONTENT --}}

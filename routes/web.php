@@ -59,9 +59,22 @@ Route::delete(
 
 // RESELLER
 use App\Http\Controllers\ResellerController;
-
 Route::get('/reseller', [ResellerController::class, 'index'])
     ->name('reseller.index');
+Route::get('/reseller/create', [ResellerController::class, 'create'])
+    ->name('reseller.create');
+Route::post('/reseller', [ResellerController::class, 'store'])
+    ->name('reseller.store');
+Route::patch(
+    '/reseller/{id}/toggle-status',
+    [ResellerController::class, 'toggleStatus']
+)->name('reseller.toggleStatus');
+
+// Hapus reseller
+Route::delete(
+    '/reseller/{id}',
+    [ResellerController::class, 'destroy']
+)->name('reseller.destroy');
 
 // DASHBOARD
 Route::get('/dashboard', function () {
