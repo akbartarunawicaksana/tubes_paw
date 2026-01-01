@@ -13,6 +13,47 @@
 
     {{-- CSS --}}
     <link rel="stylesheet" href="{{ asset('css/produk.css') }}">
+
+    <style>
+        /* Background foto toko paling belakang */
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .wrapper {
+            min-height: 100vh;
+            background-image: url('/images/bg-toko.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* tetap saat scroll */
+            position: relative;
+            display: flex;
+        }
+
+        /* Overlay putih semi-transparan + blur halus biar konten jelas */
+        .wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.70); /* putih 90% transparan */
+            backdrop-filter: blur(2px); /* blur halus seperti Figma */
+            z-index: 1;
+        }
+
+        /* Sidebar dan content di atas overlay */
+        .sidebar, .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Optional: bikin card di content lebih putih dan shadow */
+        .card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+    </style>
 </head>
 <body>
 
