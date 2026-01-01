@@ -198,3 +198,20 @@ body {
     font-size: 16px;
     min-width: 20px; /* supaya teks sejajar */
 }
+
+/* ===== RESELLER ===== */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.bg-success {
+    background: #22c55e;
+}
+
+.bg-danger {
+    background: #ef4444;
+}
