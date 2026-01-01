@@ -9,3 +9,26 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* =====================
+   GLOBAL LAYOUT
+   ===================== */
+
+   .wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 240px;
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+}
+
+.content {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;   /* INI YANG BIKIN SCROLL */
+    padding: 30px;
+    background: #f4f6f9;
+}

@@ -1,9 +1,9 @@
 <div class="sidebar">
 
     {{-- LOGO --}}
-    <div class="sidebar-logo">
-        <img src="{{ asset('images/LogoBrasilMerah.png') }}" alt="Brasil Logo">
-    </div>
+    <img src="{{ url('images/LogoBrasilMerah.png') }}" 
+     alt="Logo" 
+     style="max-width:130px;">
 
     {{-- MENU --}}
     <ul class="menu">

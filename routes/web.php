@@ -62,3 +62,8 @@ use App\Http\Controllers\ResellerController;
 
 Route::get('/reseller', [ResellerController::class, 'index'])
     ->name('reseller.index');
+
+// DASHBOARD
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard.index');

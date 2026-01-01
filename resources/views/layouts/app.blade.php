@@ -14,10 +14,14 @@
 <body>
 
 <div class="wrapper">
-
     {{-- SIDEBAR --}}
     <div class="sidebar">
-        <div class="logo"><strong>Brasil</strong></div>
+        <div class="logo" style="text-align: center;">
+        <img src="{{ asset('images/LogoBrasilMerah.png') }}" 
+         alt="Logo Brasil" 
+         style="width:120px; margin-bottom:10px;">
+        </div>
+
 
         <ul>
             <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
@@ -50,8 +54,6 @@
     <div class="content">
         @yield('content')
     </div>
-
 </div>
-
 </body>
 </html>
