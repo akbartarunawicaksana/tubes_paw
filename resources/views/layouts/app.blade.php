@@ -26,7 +26,7 @@
             background-image: url('/images/bg-toko.jpeg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* tetap saat scroll */
+            background-attachment: fixed; 
             position: relative;
             display: flex;
         }
@@ -36,18 +36,16 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.70); /* putih 90% transparan */
-            backdrop-filter: blur(2px); /* blur halus seperti Figma */
+            background: rgba(255, 255, 255, 0.70); 
+            backdrop-filter: blur(2px); 
             z-index: 1;
         }
 
-        /* Sidebar dan content di atas overlay */
         .sidebar, .content {
             position: relative;
             z-index: 2;
         }
 
-        /* Optional: bikin card di content lebih putih dan shadow */
         .card {
             background: rgba(255, 255, 255, 0.98);
             border-radius: 12px;

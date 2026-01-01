@@ -5,10 +5,12 @@
 
 <div class="content">
     <div class="card">
-        <div class="card-header">
-            <h3>Daftar Stok</h3>
-            <a href="{{ route('stok.edit', 1) }}" class="btn-primary">Perbarui Stok</a>
-        </div>
+        <div class="card-header d-flex justify-content-between align-items-center bg-white">
+            <h3 class="mb-0">Daftar Stok</h3>
+            <a href="{{ route('stok.edit') }}" class="btn btn-primary">
+                Perbarui Stok
+            </a>
+</div>
 
         <table class="table">
             <thead>
