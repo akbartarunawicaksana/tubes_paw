@@ -129,5 +129,20 @@
 
 </div>
 
+    <script>
+    function togglePasswordForm() {
+        const form = document.getElementById('passwordForm');
+        const arrow = document.getElementById('arrowIcon');
+
+        if (form.style.display === 'block') {
+            form.style.display = 'none';
+            arrow.classList.remove('rotate');
+        } else {
+            form.style.display = 'block';
+            arrow.classList.add('rotate');
+        }
+    }
+    </script>
+
 </body>
 </html>

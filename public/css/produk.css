@@ -356,3 +356,130 @@ body {
     font-size: 13px;
     color: #374151;
 }
+
+/* ================= PENGATURAN ================= */
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+/* Kiri: icon + teks */
+.setting-item .left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    color: #374151;
+}
+
+/* Kanan: badge + arrow */
+.setting-item .right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Badge Indonesia */
+.badge-language {
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+/* Arrow */
+.setting-item .right i {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+/* ================= PENGATURAN AKUN ================= */
+
+.settings-page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.settings-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.settings-header h2 {
+    font-weight: 600;
+}
+
+.settings-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #111827;
+    transition: all 0.15s ease;
+}
+
+.settings-item:not(:last-child) {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* kiri */
+.settings-item .item-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.settings-item .item-left i {
+    font-size: 18px;
+    color: #374151;
+}
+
+/* panah */
+.settings-item .arrow {
+    color: #9ca3af;
+}
+
+/* hover */
+.settings-item:hover {
+    background: #f9fafb;
+}
+
+/* efek klik MERAH SEKILAS */
+.settings-item:active {
+    background: #fee2e2;
+    transform: scale(0.98);
+}
+
+.password-form {
+    display: none;
+    padding: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    cursor: pointer;
+}
+
+.settings-item:active {
+    background: #fee2e2; /* merah sekilas pas diklik */
+}

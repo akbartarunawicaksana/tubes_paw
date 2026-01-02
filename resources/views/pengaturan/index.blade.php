@@ -6,10 +6,10 @@
 
     {{-- HEADER PROFIL --}}
     <div class="profile-card">
-        <img src="{{ asset('images/avatar.png') }}" class="profile-avatar">
+        <img src="{{ asset('images/avatar.jpeg') }}" class="profile-avatar">
 
         <div class="profile-info">
-            <h4>Fakhri Pangeran Beji</h4>
+            <h4>Adalah Pokoknya</h4>
             <p>owner@gmail.com</p>
         </div>
 
@@ -31,17 +31,24 @@
     <h3 class="section-title">Pengaturan Akun</h3>
 
     <div class="settings-card">
-        <a href="#" class="settings-item">
+
+        <a href="{{ url('/pengaturan/keamanan') }}" class="settings-item">
             <i class="fa-solid fa-shield-halved"></i>
             <span>Kata Sandi & Keamanan</span>
             <i class="fa-solid fa-chevron-right"></i>
         </a>
 
-        <a href="#" class="settings-item">
-            <i class="fa-solid fa-globe"></i>
-            <span>Bahasa</span>
-            <span class="badge-lang">Indonesia</span>
-            <i class="fa-solid fa-chevron-right"></i>
+        {{-- BAHASA --}}
+        <a href="#" class="settings-item language-item">
+            <div class="left">
+                <i class="fa-solid fa-globe"></i>
+                <span>Bahasa</span>
+            </div>
+
+            <div class="right">
+                <span class="badge-language">Indonesia</span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
         </a>
 
         <a href="#" class="settings-item">
@@ -55,6 +62,7 @@
             <span>Tentang</span>
             <i class="fa-solid fa-chevron-right"></i>
         </a>
+
     </div>
 
 </div>

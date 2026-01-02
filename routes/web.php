@@ -68,3 +68,16 @@ Route::get('/dashboard', function () {
 Route::get('/pengaturan', function () {
     return view('pengaturan.index');
 })->name('pengaturan.index');
+
+Route::get('/pengaturan/keamanan', function () {
+    return view('pengaturan.keamanan');
+
+Route::get('/pengaturan/profil', function () {
+    return view('pengaturan.profil');
+})->name('profil.index');
+    
+Route::get('/pengaturan/profil/edit', function () {
+    return view('pengaturan.profil-edit');
+})->name('profil.edit');
+    
+});
