@@ -33,29 +33,12 @@ Route::delete(uri: '/produk/{id}', action: [ProductController::class, 'destroy']
 
 use App\Http\Controllers\StokController;
 
-// READ - Tampilkan semua stok (Daftar Stok)
-Route::get(
-    uri: '/stok',
-    action: [StokController::class, 'index']
-)->name(name: 'stok.index');
+// READ - Daftar Stok
+Route::get('/stok', [StokController::class, 'index'])->name('stok.index');
 
-// UPDATE - Tampilkan form edit stok
-Route::get(
-    uri: '/stok/{id}/edit',
-    action: [StokController::class, 'edit']
-)->name(name: 'stok.edit');
-
-// UPDATE - Simpan perubahan stok
-Route::put(
-    uri: '/stok/{id}',
-    action: [StokController::class, 'update']
-)->name(name: 'stok.update');
-
-// DELETE - Hapus stok
-Route::delete(
-    uri: '/stok/{id}',
-    action: [StokController::class, 'destroy']
-)->name(name: 'stok.destroy');
+// PERBARUI STOK UMUM
+Route::get('/stok/perbarui', [StokController::class, 'perbaruiForm'])->name('stok.edit');
+Route::post('/stok/perbarui', [StokController::class, 'perbaruiUpdate'])->name('stok.update');
 
 // RESELLER
 use App\Http\Controllers\ResellerController;

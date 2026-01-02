@@ -12,7 +12,7 @@
         </a>
     </div>
 
-    {{-- TABLE --}}
+    {{-- TABEL --}}
     <table class="table">
         <thead>
             <tr>
@@ -47,8 +47,8 @@
                           style="display:inline">
                         @csrf
                         @method('DELETE')
-                        <button class="delete"
-                                onclick="return confirm('Hapus produk ini?')">
+                        <button type="submit" class="btn btn-sm btn-danger"
+                            onclick="return confirm('Hapus produk ini?')">
                             Hapus
                         </button>
                     </form>
