@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
 
 class ProductController extends Controller
 {
@@ -12,6 +13,13 @@ class ProductController extends Controller
     public function index()
     {
         $produks = Produk::paginate(5);
+
+        // API
+        if (request()->is('api/*')) {
+            return response()->json($produks);
+        }
+
+        // Web
         return view('produk.index', compact('produks'));
     }
 
@@ -39,8 +47,17 @@ class ProductController extends Controller
             $data['foto'] = $request->file('foto')->store('produk', 'public');
         }
 
-        Produk::create($data);
+        $produk = Produk::create($data);
 
+        // API
+        if (request()->is('api/*')) {
+            return response()->json([
+                'message' => 'Produk berhasil ditambahkan',
+                'data' => $produk
+            ]);
+        }
+
+        // Web
         return redirect()->route('produk.index')->with('success', 'Produk berhasil ditambahkan!');
     }
 
@@ -68,7 +85,6 @@ class ProductController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('foto')) {
-            // Hapus foto lama jika ada
             if ($produk->foto) {
                 Storage::disk('public')->delete($produk->foto);
             }
@@ -76,6 +92,14 @@ class ProductController extends Controller
         }
 
         $produk->update($data);
+
+        // API
+        if (request()->is('api/*')) {
+            return response()->json([
+                'message' => 'Produk berhasil diupdate',
+                'data' => $produk
+            ]);
+        }
 
         return redirect()->route('produk.index')->with('success', 'Produk berhasil diupdate!');
     }
@@ -85,13 +109,30 @@ class ProductController extends Controller
     {
         $produk = Produk::findOrFail($id);
 
-        // Hapus foto dari storage jika ada
         if ($produk->foto) {
             Storage::disk('public')->delete($produk->foto);
         }
 
         $produk->delete();
 
+        // API
+        if (request()->is('api/*')) {
+            return response()->json([
+                'message' => 'Produk berhasil dihapus'
+            ]);
+        }
+
         return redirect()->route('produk.index')->with('success', 'Produk berhasil dihapus!');
+    }
+
+    // 🔥 PUBLIC API (WAJIB BUAT DOSEN)
+    public function externalApi()
+    {
+        $response = Http::get('https://jsonplaceholder.typicode.com/posts');
+
+        return response()->json([
+            'message' => 'Data dari Public API',
+            'data' => $response->json()
+        ]);
     }
 }

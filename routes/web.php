@@ -81,3 +81,15 @@ Route::get('/pengaturan/profil/edit', function () {
 })->name('profil.edit');
     
 });
+
+Route::prefix('api')->group(function () {
+
+    Route::get('produk', [ProductController::class, 'index']);
+    Route::post('produk', [ProductController::class, 'store']);
+    Route::put('produk/{id}', [ProductController::class, 'update']);
+    Route::delete('produk/{id}', [ProductController::class, 'destroy']);
+
+});
+
+// PUBLIC API
+Route::get('api/external', [ProductController::class, 'externalApi']);
