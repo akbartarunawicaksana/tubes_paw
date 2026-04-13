@@ -1,13 +1,11 @@
-// ================= API =================
+<?php
 
-Route::prefix('api')->group(function () {
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
-    // PRODUK API
-    Route::get('produk', [ProductController::class, 'index']);
-    Route::post('produk', [ProductController::class, 'store']);
-    Route::put('produk/{id}', [ProductController::class, 'update']);
-    Route::delete('produk/{id}', [ProductController::class, 'destroy']);
+Route::get('/produk', [ProductController::class, 'index']);
+Route::post('/produk', [ProductController::class, 'store']);
+Route::put('/produk/{id}', [ProductController::class, 'update']);
+Route::delete('/produk/{id}', [ProductController::class, 'destroy']);
 
-    // PUBLIC API (WAJIB DOSEN)
-    Route::get('external', [ProductController::class, 'externalApi']);
-});
+Route::get('/external', [ProductController::class, 'externalApi']);
