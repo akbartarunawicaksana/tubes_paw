@@ -76,5 +76,3 @@ Route::get('/pengaturan/profil', function () {
 Route::get('/pengaturan/profil/edit', function () {
     return view('pengaturan.profil-edit');
 })->name('profil.edit');
-
-
