@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController; 
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StokController;
+use App\Http\Controllers\ResellerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,83 +15,79 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// READ - Tampilkan semua produk (Daftar Produk)
-Route::get(uri: '/produk', action: [ProductController::class, 'index'])->name(name: 'produk.index');
+// ================= PRODUK =================
 
-// CREATE - Tampilkan form tambah produk baru
-Route::get(uri: '/produk/create', action: [ProductController::class, 'create'])->name(name: 'produk.create');
+// READ
+Route::get('/produk', [ProductController::class, 'index'])->name('produk.index');
 
-// CREATE - Simpan produk baru
-Route::post(uri: '/produk', action: [ProductController::class, 'store'])->name(name: 'produk.store');
+// CREATE
+Route::get('/produk/create', [ProductController::class, 'create'])->name('produk.create');
+Route::post('/produk', [ProductController::class, 'store'])->name('produk.store');
 
-// UPDATE - Tampilkan form edit produk
-Route::get(uri: '/produk/{id}/edit', action: [ProductController::class, 'edit'])->name(name: 'produk.edit');
+// UPDATE
+Route::get('/produk/{id}/edit', [ProductController::class, 'edit'])->name('produk.edit');
+Route::put('/produk/{id}', [ProductController::class, 'update'])->name('produk.update');
 
-// UPDATE - Simpan perubahan produk
-Route::put(uri: '/produk/{id}', action: [ProductController::class, 'update'])->name(name: 'produk.update');
+// DELETE
+Route::delete('/produk/{id}', [ProductController::class, 'destroy'])->name('produk.destroy');
 
-// DELETE - Hapus produk
-Route::delete(uri: '/produk/{id}', action: [ProductController::class, 'destroy'])->name(name: 'produk.destroy');
 
-use App\Http\Controllers\StokController;
+// ================= STOK =================
 
-// READ - Daftar Stok
 Route::get('/stok', [StokController::class, 'index'])->name('stok.index');
-
-// PERBARUI STOK UMUM
 Route::get('/stok/perbarui', [StokController::class, 'perbaruiForm'])->name('stok.edit');
 Route::post('/stok/perbarui', [StokController::class, 'perbaruiUpdate'])->name('stok.update');
 
-// RESELLER
-use App\Http\Controllers\ResellerController;
-Route::get('/reseller', [ResellerController::class, 'index'])
-    ->name('reseller.index');
-Route::get('/reseller/create', [ResellerController::class, 'create'])
-    ->name('reseller.create');
-Route::post('/reseller', [ResellerController::class, 'store'])
-    ->name('reseller.store');
-Route::patch(
-    '/reseller/{id}/toggle-status',
-    [ResellerController::class, 'toggleStatus']
-)->name('reseller.toggleStatus');
 
-// Hapus reseller
-Route::delete(
-    '/reseller/{id}',
-    [ResellerController::class, 'destroy']
-)->name('reseller.destroy');
+// ================= RESELLER =================
 
-// DASHBOARD
+Route::get('/reseller', [ResellerController::class, 'index'])->name('reseller.index');
+Route::get('/reseller/create', [ResellerController::class, 'create'])->name('reseller.create');
+Route::post('/reseller', [ResellerController::class, 'store'])->name('reseller.store');
+
+Route::patch('/reseller/{id}/toggle-status', [ResellerController::class, 'toggleStatus'])
+    ->name('reseller.toggleStatus');
+
+Route::delete('/reseller/{id}', [ResellerController::class, 'destroy'])
+    ->name('reseller.destroy');
+
+
+// ================= DASHBOARD =================
+
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard.index');
 
-// Pengaturan
+
+// ================= PENGATURAN =================
+
 Route::get('/pengaturan', function () {
     return view('pengaturan.index');
 })->name('pengaturan.index');
 
 Route::get('/pengaturan/keamanan', function () {
     return view('pengaturan.keamanan');
+})->name('pengaturan.keamanan');
 
 Route::get('/pengaturan/profil', function () {
     return view('pengaturan.profil');
 })->name('profil.index');
-    
+
 Route::get('/pengaturan/profil/edit', function () {
     return view('pengaturan.profil-edit');
 })->name('profil.edit');
-    
-});
+
+
+// ================= API =================
 
 Route::prefix('api')->group(function () {
 
+    // PRODUK API
     Route::get('produk', [ProductController::class, 'index']);
     Route::post('produk', [ProductController::class, 'store']);
     Route::put('produk/{id}', [ProductController::class, 'update']);
     Route::delete('produk/{id}', [ProductController::class, 'destroy']);
 
+    // PUBLIC API (WAJIB DOSEN)
+    Route::get('external', [ProductController::class, 'externalApi']);
 });
-
-// PUBLIC API
-Route::get('api/external', [ProductController::class, 'externalApi']);
