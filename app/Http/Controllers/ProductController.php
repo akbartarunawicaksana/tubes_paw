@@ -125,7 +125,7 @@ class ProductController extends Controller
         return redirect()->route('produk.index')->with('success', 'Produk berhasil dihapus!');
     }
 
-    // 🔥 PUBLIC API (WAJIB BUAT DOSEN)
+    // PUBLIC API
     public function externalApi()
     {
         $response = Http::get('https://jsonplaceholder.typicode.com/posts');
